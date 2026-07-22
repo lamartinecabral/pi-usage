@@ -9,7 +9,7 @@ The included [`models.json`](models.json) configures PI to use either Google AI 
 | Provider | Models | Connection |
 | --- | --- | --- |
 | Google AI Studio | Gemma 4 31B | Google Generative Language API |
-| Ollama | Gemma 4 26B, Gemma 4 E2B, Gemma 4 E4B, GPT-OSS 20B | `http://127.0.0.1:11434/v1` |
+| Ollama | Gemma 4 26B, Gemma 4 12B, Gemma 4 E2B, Gemma 4 E4B, GPT-OSS 20B | `http://127.0.0.1:11434/v1` |
 
 All configured models support reasoning. Gemma models accept text and images; GPT-OSS 20B is configured for text input.
 
@@ -48,6 +48,7 @@ pi install git:github.com/lamartinecabral/pi-all-tools
 | --- | --- | --- |
 | **Gemma 4 31B** (`gemma-4-31b-it`) | High-quality hosted coding | Available through Google AI Studio; requires a Gemini API key. |
 | **Gemma 4 26B** (`gemma4:26b-a4b-it-qat`) | Simple tasks | Designed to fit in 16 GB VRAM. |
+| **Gemma 4 12B** (`gemma4:12b-it-qat`) | Simple tasks | Designed to fit in 8 GB VRAM. |
 | **GPT-OSS 20B** (`gpt-oss:20b`) | Simple tasks | Designed to fit in 16 GB VRAM. |
 | **Gemma 4 E2B / E4B** (`gemma4:e2b-mxfp8`, `gemma4:e4b-mxfp8`) | Lightweight tool use | Good choices for file reading and web-search tasks. |
 
@@ -61,6 +62,7 @@ Pull only the models you plan to use:
 
 ```sh
 ollama pull gemma4:26b-a4b-it-qat
+ollama pull gemma4:12b-it-qat
 ollama pull gemma4:e2b-mxfp8
 ollama pull gemma4:e4b-mxfp8
 ollama pull gpt-oss:20b

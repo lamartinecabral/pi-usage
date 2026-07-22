@@ -39,6 +39,23 @@
         {
           "_launch": true,
           "contextWindow": 65536,
+          "id": "gemma4:12b-it-qat",
+          "name": "Gemma 4 12B",
+          "input": ["text", "image"],
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "none",
+            "minimal": null,
+            "low": null,
+            "medium": null,
+            "high": "high",
+            "xhigh": null,
+            "max": null
+          }
+        },
+        {
+          "_launch": true,
+          "contextWindow": 65536,
           "id": "gemma4:e2b-mxfp8",
           "name": "Gemma 4 E2B",
           "input": ["text", "image"],
