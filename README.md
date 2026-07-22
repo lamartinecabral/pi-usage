@@ -8,6 +8,17 @@ Place the `models.json` file at `~/.pi/agent/models.json`.
 
 > **Note:** The Gemma 4 31B model (`gemma-4-31b-it`) requires a Gemini API key. You can obtain one at https://aistudio.google.com/app/api-keys. Set it as the `apiKey` value in the `_google` provider section.
 
+### Model choice
+
+| Model | Why |
+|---|---|
+| **Gemma 4 31B** (`gemma-4-31b-it`) | High-quality model available for free via Google AI Studio |
+| **Gemma 4 26B** (`gemma4:26b-a4b-it-qat`) | Fits in 16 GB VRAM; good enough for general coding tasks |
+| **GPT-OSS 20B** (`gpt-oss:20b`) | Fits in 16 GB VRAM; good enough for general coding tasks |
+| **Gemma 4 E2B / E4B** (`gemma4:e2b-mxfp8`, `gemma4:e4b-mxfp8`) | Lightweight and capable for tool-calling tasks such as reading files and web searching |
+
+> **Note:** Qwen models are not included because their reasoning traces are excessively long, which makes them impractical for the slow inference speeds typical of local model setups.
+
 ## Using PI with Ollama
 
 The `models.json` file includes an `ollama` provider pre-configured to connect to a local Ollama server at `http://127.0.0.1:11434/v1`.
