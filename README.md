@@ -1,5 +1,6 @@
 # pi-usage
-helpers for PI Coding Agent
+
+helpers for [PI Coding Agent](https://pi.dev/)
 
 ## models.json
 
