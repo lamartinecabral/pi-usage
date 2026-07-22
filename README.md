@@ -30,6 +30,18 @@ All configured models support reasoning. Gemma models accept text and images; GP
 
 Do not commit a copy of the configuration containing a personal API key.
 
+## Extensions
+
+Install these extensions with the PI CLI:
+
+```sh
+pi install git:github.com/lamartinecabral/pi-web-search
+pi install git:github.com/lamartinecabral/pi-all-tools
+```
+
+- [`pi-web-search`](https://github.com/lamartinecabral/pi-web-search) adds `web_search` and `web_fetch` tools. It requires a compatible local browser; set `CHROME_PATH` if PI cannot locate one automatically.
+- [`pi-all-tools`](https://github.com/lamartinecabral/pi-all-tools) enables PI's built-in `read`, `write`, `edit`, `bash`, `ls`, `find`, and `grep` tools by default.
+
 ## Model guide
 
 | Model | Best fit | Notes |
