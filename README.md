@@ -46,3 +46,12 @@ ollama run $MODEL_ID --keepalive=30m ""
 ```
 
 Replace `$MODEL_ID` with the model you want to use (e.g. `gemma4:27b`). Once running, PI will connect to it automatically using the configured `baseUrl`.
+
+### 5. Increase the context length
+
+To allow Ollama to handle longer conversations, increase the context length in its settings:
+
+1. Click the Ollama icon in the system tray
+2. Click **Settings...**
+3. Scroll down to **Context length**
+4. Set the desired value (should match or exceed the `contextWindow` value in `models.json`)
