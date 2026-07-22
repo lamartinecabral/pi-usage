@@ -37,4 +37,12 @@ Ollama runs as a background service. Start it with:
 ollama serve
 ```
 
-Once running, PI will connect to it automatically using the configured `baseUrl`.
+### 4. Load a model with a higher time limit
+
+By default, Ollama unloads a model from memory after a short idle period. Before using PI, load the model with a longer keepalive so it stays available during your session:
+
+```sh
+ollama run $MODEL_ID --keepalive=30m ""
+```
+
+Replace `$MODEL_ID` with the model you want to use (e.g. `gemma4:27b`). Once running, PI will connect to it automatically using the configured `baseUrl`.
