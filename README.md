@@ -47,8 +47,8 @@ pi install git:github.com/lamartinecabral/pi-all-tools
 | Model | Best fit | Notes |
 | --- | --- | --- |
 | **Gemma 4 31B** (`gemma-4-31b-it`) | High-quality hosted coding | Available through Google AI Studio; requires a Gemini API key. |
-| **Gemma 4 26B** (`gemma4:26b-a4b-it-qat`) | General local coding | Designed to fit in 16 GB VRAM. |
-| **GPT-OSS 20B** (`gpt-oss:20b`) | General local coding | Designed to fit in 16 GB VRAM. |
+| **Gemma 4 26B** (`gemma4:26b-a4b-it-qat`) | Simple tasks | Designed to fit in 16 GB VRAM. |
+| **GPT-OSS 20B** (`gpt-oss:20b`) | Simple tasks | Designed to fit in 16 GB VRAM. |
 | **Gemma 4 E2B / E4B** (`gemma4:e2b-mxfp8`, `gemma4:e4b-mxfp8`) | Lightweight tool use | Good choices for file reading and web-search tasks. |
 
 Qwen models are intentionally absent because their long reasoning traces are a poor fit for typical local inference speeds.
