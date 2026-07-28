@@ -2,20 +2,19 @@
 
 Helpers and a ready-to-use model configuration for the [PI Coding Agent](https://pi.dev/).
 
-The included [`models.json`](models.json) configures PI to use either Google AI Studio or a local [Ollama](https://ollama.com/) server. It is intended to make a practical mix of capable hosted and local coding models available with minimal setup.
+The included [`models.json`](models.json) configures PI to use a local [Ollama](https://ollama.com/) server. It is intended to make a practical mix of capable local coding models available with minimal setup.
 
 ## Included configuration
 
 | Provider | Models | Connection |
 | --- | --- | --- |
-| Google AI Studio | Gemma 4 31B | Google Generative Language API |
 | Ollama | Gemma 4 26B, Gemma 4 12B, Gemma 4 E2B, Gemma 4 E4B, GPT-OSS 20B | `http://127.0.0.1:11434/v1` |
 
 All configured models support reasoning. Gemma models accept text and images; GPT-OSS 20B is configured for text input.
 
 ## Quick start
 
-1. Install the [PI Coding Agent](https://pi.dev/) and, for local models, [Ollama](https://ollama.com/download).
+1. Install the [PI Coding Agent](https://pi.dev/) and [Ollama](https://ollama.com/download).
 2. Copy the configuration into PI's agent directory:
 
    ```sh
@@ -23,9 +22,7 @@ All configured models support reasoning. Gemma models accept text and images; GP
    cp models.json ~/.pi/agent/models.json
    ```
 
-3. Configure at least one provider:
-   - For Google AI Studio, replace `<your-gemini-api-key>` in the `_google.apiKey` field of `~/.pi/agent/models.json` with a Gemini API key from [Google AI Studio](https://aistudio.google.com/app/api-keys).
-   - For Ollama, pull one or more of the models listed below and ensure the Ollama server is running.
+3. Pull one or more of the models listed below and ensure the Ollama server is running.
 4. Start PI and select an available model.
 
 Do not commit a copy of the configuration containing a personal API key.
@@ -46,7 +43,6 @@ pi install git:github.com/lamartinecabral/pi-all-tools
 
 | Model | Best fit | Notes |
 | --- | --- | --- |
-| **Gemma 4 31B** (`gemma-4-31b-it`) | High-quality hosted coding | Available through Google AI Studio; requires a Gemini API key. |
 | **Gemma 4 26B** (`gemma4:26b-a4b-it-qat`) | Simple tasks | Designed to fit in 16 GB VRAM. |
 | **Gemma 4 12B** (`gemma4:12b-it-qat`) | Simple tasks | Designed to fit in 8 GB VRAM. |
 | **GPT-OSS 20B** (`gpt-oss:20b`) | Simple tasks | Designed to fit in 16 GB VRAM. |
@@ -101,8 +97,7 @@ Each local model in this configuration has a `contextWindow` of `65536`. In Olla
 | A local model is unavailable in PI | Run `ollama list`, then confirm its exact ID appears in `ollama.models`. |
 | PI cannot reach a local model | Ensure `ollama serve` is running and that `http://127.0.0.1:11434/v1` is reachable. |
 | Conversations lose earlier context | Increase Ollama's context length to at least `65536`, if your hardware allows it. |
-| Gemma 4 31B cannot authenticate | Verify the `_google.apiKey` value is a valid Gemini API key. |
 
 ## Customizing the configuration
 
-Edit [`models.json`](models.json) before copying it, or edit `~/.pi/agent/models.json` afterward. The two provider sections are independent, so you can use Google AI Studio, Ollama, or both. When adding a local model, use its exact Ollama ID and set its capabilities and context window to match the model you have installed.
+Edit [`models.json`](models.json) before copying it, or edit `~/.pi/agent/models.json` afterward. When adding a local model, use its exact Ollama ID and set its capabilities and context window to match the model you have installed.
