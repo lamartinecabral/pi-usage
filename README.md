@@ -8,9 +8,9 @@ The included [`models.json`](models.json) configures PI to use a local [Ollama](
 
 | Provider | Models | Connection |
 | --- | --- | --- |
-| Ollama | Gemma 4 26B, Gemma 4 12B, Gemma 4 E2B, Gemma 4 E4B, GPT-OSS 20B | `http://127.0.0.1:11434/v1` |
+| Ollama | Gemma 4 26B, Qwen 3.6 35B, GPT-OSS 20B | `http://127.0.0.1:11434/v1` |
 
-All configured models support reasoning. Gemma models accept text and images; GPT-OSS 20B is configured for text input.
+All configured models support reasoning. Gemma 4 26B and Qwen 3.6 35B accept text and images; GPT-OSS 20B is configured for text input.
 
 ## Quick start
 
@@ -41,14 +41,21 @@ pi install git:github.com/lamartinecabral/pi-all-tools
 
 ## Model guide
 
-| Model | Best fit | Notes |
-| --- | --- | --- |
-| **Gemma 4 26B** (`gemma4:26b-a4b-it-qat`) | Simple tasks | Designed to fit in 16 GB VRAM. |
-| **Gemma 4 12B** (`gemma4:12b-it-qat`) | Simple tasks | Designed to fit in 8 GB VRAM. |
-| **GPT-OSS 20B** (`gpt-oss:20b`) | Simple tasks | Designed to fit in 16 GB VRAM. |
-| **Gemma 4 E2B / E4B** (`gemma4:e2b-mxfp8`, `gemma4:e4b-mxfp8`) | Lightweight tool use | Good choices for file reading and web-search tasks. |
+| Model | Memory usage |
+| --- | --- |
+| **GPT-OSS 20B** (`gpt-oss:20b`) | 12 GB |
+| **Gemma 4 26B** (`gemma4:26b-a4b-it-qat`) | 16 GB |
+| **Qwen 3.6 35B** (`qwen3.6:35b-a3b`) | 25 GB |
 
-Qwen models are intentionally absent because their long reasoning traces are a poor fit for typical local inference speeds.
+Memory use varies by hardware and Ollama settings; the figures above are approximate requirements for this configuration's `65536` context window.
+
+### Thinking levels
+
+`thinkingLevelMap` controls which reasoning levels PI presents in its menu and how they map to the model's supported values. A `null` value removes that level from PI's menu. The configuration only exposes levels that produce coherent behavior for each model, even when Ollama accepts additional values that the model does not meaningfully honor.
+
+- **Qwen 3.6 35B:** Supports reasoning off, but every other level produces extremely long reasoning. The configuration therefore keeps only `off` and `max`.
+- **GPT-OSS 20B:** Has distinct behavior at `low`, `medium`, and `high`, but cannot turn reasoning off.
+- **Gemma 4 26B:** Can turn reasoning off, but all other levels behave the same, at a level comparable to GPT-OSS 20B's `high`. The configuration therefore keeps only `off` and `high`.
 
 ## Using local models with Ollama
 
@@ -57,11 +64,9 @@ Qwen models are intentionally absent because their long reasoning traces are a p
 Pull only the models you plan to use:
 
 ```sh
-ollama pull gemma4:26b-a4b-it-qat
-ollama pull gemma4:12b-it-qat
-ollama pull gemma4:e2b-mxfp8
-ollama pull gemma4:e4b-mxfp8
 ollama pull gpt-oss:20b
+ollama pull gemma4:26b-a4b-it-qat
+ollama pull qwen3.6:35b-a3b
 ```
 
 The names must match the entries in the `ollama.models` array of [`models.json`](models.json). Add or remove entries there as your local model collection changes.
