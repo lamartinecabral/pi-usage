@@ -6,11 +6,15 @@ The included [`models.json`](models.json) configures PI to use a local [Ollama](
 
 ## Included configuration
 
-| Provider | Models | Connection |
-| --- | --- | --- |
-| Ollama | Gemma 4 26B, Qwen 3.6 35B, GPT-OSS 20B | `http://127.0.0.1:11434/v1` |
+The included [`models.json`](models.json) configures PI's Ollama provider for the OpenAI-compatible endpoint at `http://127.0.0.1:11434/v1`.
 
-All configured models support reasoning. Gemma 4 26B and Qwen 3.6 35B accept text and images; GPT-OSS 20B is configured for text input.
+| Model | Ollama ID | Input | Thinking levels |
+| --- | --- | --- | --- |
+| GPT-OSS 20B | `gpt-oss:20b` | Text | Low, medium, high |
+| Gemma 4 26B | `gemma4:26b-a4b-it-qat` | Text, images | Off, high |
+| Qwen 3.6 35B | `qwen3.6:35b-a3b` | Text, images | Off, max |
+
+All three models use a [`65536` context window](#set-the-context-length) and support reasoning. The listed thinking levels are the only levels PI exposes for each model.
 
 ## Quick start
 
