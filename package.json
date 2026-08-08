@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "open": "code ~/.pi/agent/models.json"
+  }
+}

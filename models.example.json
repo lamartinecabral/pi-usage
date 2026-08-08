@@ -1,0 +1,146 @@
+{
+  "providers": {
+    "_openai": {
+      "baseUrl": "https://api.openai.com/v1",
+      "api": "openai-responses",
+      "apiKey": "",
+      "models": [
+        {
+          "id": "gpt-5.6-luna",
+          "input": ["text", "image"],
+          "contextWindow": 1050000,
+          "reasoning": true
+        }
+      ]
+    },
+    "_google": {
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "api": "google-generative-ai",
+      "apiKey": "",
+      "models": [
+        {
+          "id": "gemini-3.5-flash-lite",
+          "input": ["text", "image"],
+          "contextWindow": 1000000,
+          "reasoning": true
+        }
+      ]
+    },
+    "_openrouter": {
+      "api": "openai-completions",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "apiKey": "",
+      "models": [
+        {
+          "id": "openai/gpt-5.6-luna",
+          "contextWindow": 1050000,
+          "input": ["text", "image"],
+          "reasoning": true
+        },
+        {
+          "id": "deepseek/deepseek-v4-pro",
+          "contextWindow": 1048576,
+          "input": ["text", "image"],
+          "reasoning": true
+        }
+      ]
+    },
+    "ollama_cloud": {
+      "api": "openai-completions",
+      "baseUrl": "https://ollama.com/v1",
+      "apiKey": "",
+      "models": [
+        {
+          "id": "gemma4:31b",
+          "contextWindow": 256000,
+          "input": ["text"],
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "none",
+            "minimal": null,
+            "low": null,
+            "medium": null,
+            "high": "high",
+            "xhigh": null,
+            "max": null
+          }
+        }
+      ]
+    },
+    "ollama": {
+      "api": "openai-completions",
+      "apiKey": "ollama",
+      "baseUrl": "http://127.0.0.1:11434/v1",
+      "models": [
+        {
+          "_launch": true,
+          "contextWindow": 65536,
+          "id": "gemma4:e2b-mxfp8",
+          "name": "Gemma 4 E2B",
+          "input": ["text", "image"],
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "none",
+            "minimal": null,
+            "low": null,
+            "medium": null,
+            "high": "high",
+            "xhigh": null,
+            "max": null
+          }
+        },
+        {
+          "_launch": true,
+          "contextWindow": 65536,
+          "id": "gemma4:26b-a4b-it-qat",
+          "name": "Gemma 4 26B",
+          "input": ["text", "image"],
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "none",
+            "minimal": null,
+            "low": null,
+            "medium": null,
+            "high": "high",
+            "xhigh": null,
+            "max": null
+          }
+        },
+        {
+          "_launch": true,
+          "contextWindow": 65536,
+          "id": "qwen3.6:35b-a3b",
+          "name": "Qwen 3.6 35B",
+          "input": ["text", "image"],
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "none",
+            "minimal": null,
+            "low": null,
+            "medium": null,
+            "high": null,
+            "xhigh": null,
+            "max": "max"
+          }
+        },
+        {
+          "_launch": true,
+          "contextWindow": 65536,
+          "id": "gpt-oss:20b",
+          "name": "GPT-OSS 20B",
+          "input": ["text"],
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": null,
+            "max": null
+          }
+        }
+      ]
+    }
+  }
+}
