@@ -19,17 +19,22 @@ All three models use a [`65536` context window](#set-the-context-length) and sup
 ## Quick start
 
 1. Install the [PI Coding Agent](https://pi.dev/) and [Ollama](https://ollama.com/download).
-2. Copy the configuration into PI's agent directory:
+2. Copy the configuration and system prompt into PI's agent directory:
 
    ```sh
    mkdir -p ~/.pi/agent
    cp models.json ~/.pi/agent/models.json
+   cp SYSTEM.example.md ~/.pi/agent/SYSTEM.md
    ```
 
 3. Pull one or more of the models listed below and ensure the Ollama server is running.
 4. Start PI and select an available model.
 
 Do not commit a copy of the configuration containing a personal API key.
+
+## Custom System Prompt
+
+The included [`SYSTEM.example.md`](SYSTEM.example.md) provides a clean, concise custom system prompt for PI. Copy it to `~/.pi/agent/SYSTEM.md` to replace the default system prompt and keep the model context clean and focused.
 
 ## Extensions
 
